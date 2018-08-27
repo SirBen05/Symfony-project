@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block title %}Symfony{% endblock %}
+{% block body %}
+<h1>{{ name }} Articles</h1>
+{% if articles %}
+     <table id="articles" class="table tabled-striped">
+         <thead>
+            <tr>
+                <th>Article title</th>
+                <th>Actions</th>
+            </tr>
+         </thead>
+         <tbody>
+         {% for article in articles %}
+             <tr>
+                 <td>{{ article.title }}</td>
+                 <td>
+                     <a href="/symfony-project/public/article/{{ article.id }}"
+                        class="btn btn-dark">Show</a>
+                     <a href="/symfony-project/public/article/update/{{ article.id }}"
+                        class="btn btn-light">Update</a>
+                     <a href="#" article-id="{{ article.id }}"
+                        class="btn btn-danger delete-article">Delete</a>
+                 </td>
+             </tr>
+         {% endfor %}
+         </tbody>
+     </table>
+    {% else %}
+        <p>No Articles to display</p>
+    {% endif %}
+    <a href="/symfony-project/public/article/new" class="btn btn-primary">Create new article</a>
+{% endblock %}
+
+{% block javascripts %}
+<script src="js/article.js"></script>
+{% endblock %}

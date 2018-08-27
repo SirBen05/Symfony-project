@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block title %}Symfony{% endblock %}
+{% block body %}
+<h1>Bass list</h1>
+{% if bass %}
+     <table id="bass" class="table tabled-striped">
+         <thead>
+            <tr>
+                <th>Year</th>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Actions</th>
+            </tr>
+         </thead>
+         <tbody>
+         {% for bass in bass %}
+             <tr>
+                 <td>{{ bass.year }}</td>
+                 <td>{{ bass.brand }}</td>
+                 <td>{{ bass.model }}</td>
+                 <td>
+                     <a href="/symfony-project/public/bass/{{ bass.id }}"
+                        class="btn btn-dark">Show</a>
+                     <a href="/symfony-project/public/bass/update/{{ bass.id }}"
+                        class="btn btn-warning">Update</a>
+                     <div bass-id="{{ bass.id }}"
+                        class="btn btn-danger delete-bass">Delete</div>
+                 </td>
+             </tr>
+         {% endfor %}
+         </tbody>
+     </table>
+    {% else %}
+        <p>No Basses to display</p>
+    {% endif %}
+    <a href="/symfony-project/public/bass/new" class="btn btn-primary">Create new bass</a>
+{% endblock %}
+{% block javascripts %}
+    <script src="/symfony-project/public/js/bass.js"></script>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block title %}Show{% endblock %}
+{% block body %}
+    <div><span><strong>Color:</strong></span><span>{{ fruit.color }}</span></div>
+    <div><span><strong>Cultivar:</strong></span><span>{{ fruit.cultivar }}</span></div>
+    <div><span><strong>Weight:</strong></span><span>{{ fruit.weight }}</span></div>
+    <hr>
+    <a class="btn btn-primary" href="/symfony-project/public/fruit">Back</a>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block title %}People{% endblock %}
+{% block body %}
+<h1>People list</h1>
+{% if people %}
+     <table class="table tabled-striped">
+         <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Age</th>
+            </tr>
+         </thead>
+         <tbody>
+         {% for person in people %}
+             <tr>
+                 <td>{{ person.name }}</td>
+                 <td>{{ person.surname }}</td>
+                 <td>{{ person.age }}</td>
+             </tr>
+         {% endfor %}
+         </tbody>
+     </table>
+{% else %}
+    <p>No people to display</p>
+{% endif %}
+{% endblock %}

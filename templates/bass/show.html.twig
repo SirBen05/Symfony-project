@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block title %}Show{% endblock %}
+{% block body %}
+    <div><span><strong>Brand:</strong></span><span>{{ bass.brand }}</span></div>
+    <div><span><strong>Model:</strong></span><span>{{ bass.model }}</span></div>
+    <div><span><strong>Year:</strong></span><span>{{ bass.year }}</span></div>
+    <hr>
+    <a class="btn btn-primary" href="/symfony-project/public/bass">Back</a>
+{% endblock %}

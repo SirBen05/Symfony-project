@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block title %}Symfony{% endblock %}
+{% block body %}
+<h1>Fruit list</h1>
+{% if fruit %}
+     <table id="fruit" class="table tabled-striped">
+         <thead>
+            <tr>
+                <th>Weight</th>
+                <th>Color</th>
+                <th>Cultivar</th>
+                <th>Actions</th>
+            </tr>
+         </thead>
+         <tbody>
+         {% for fruit in fruit %}
+             <tr>
+                 <td>{{ fruit.weight }}</td>
+                 <td>{{ fruit.color }}</td>
+                 <td>{{ fruit.cultivar }}</td>
+                 <td>
+                     <a href="/symfony-project/public/fruit/{{ fruit.id }}"
+                        class="btn btn-dark">Show</a>
+                     <a href="/symfony-project/public/fruit/update/{{ fruit.id }}"
+                        class="btn btn-warning">Update</a>
+                     <div fruit-id="{{ fruit.id }}"
+                        class="btn btn-danger delete-fruit">Delete</div>
+                 </td>
+             </tr>
+         {% endfor %}
+         </tbody>
+     </table>
+    {% else %}
+        <p>No Fruits to display</p>
+    {% endif %}
+    <a href="/symfony-project/public/fruit/new" class="btn btn-primary">Create new fruit</a>
+{% endblock %}
+{% block javascripts %}
+    <script src="/symfony-project/public/js/fruit.js"></script>
+{% endblock %}
